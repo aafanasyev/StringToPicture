@@ -7,6 +7,11 @@ This script generates an 8x8 pixels raster graphic file in PNG format. Multiple 
 Color of pixels depends on the state of a single bit, grabbed from a character represented in 7 bits ASCII format plus 1 parity bit (one octet).
 The 8x8 pixel map filled with values from a list of 8 elements where 8 bits each. Color values could be set manually for set of 7 bits and a parity bit.
 
+Requirements
+===========
+Script was developed and tested under Python 3.6 and Pillow 4.3.0
+However, it should work well with Python 3.3 and up.
+
 Usage
 =====
 Download script.
