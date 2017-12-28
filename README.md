@@ -12,6 +12,7 @@ Usage
 Download script.
 
 Set preferred values for:
+
     # String is not longer then 8 ASCII characters
     STRING = 'mainline'
     # Basic image size
@@ -28,6 +29,7 @@ Set preferred values for:
     C_PBITS_1 = (255,69,0,255)
 
 Execute script by:
+
     $ python main.py
 
 This will produce an decent-looking image of a bitwise colored 8 ASCII characters string.
