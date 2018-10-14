@@ -19,7 +19,7 @@ except ImportError:
     print("\n\nRequires Pillow. See requirements.txt\n\n")
 
 # String is not longer then 8 ASCII characters
-STRING = 'TwoLines'
+STRING = 'AnOctet'
 # Basic image size
 B_WIDTH = 8
 B_HEIGHT = 8
@@ -27,11 +27,13 @@ B_HEIGHT = 8
 U_WIDTH = 512
 U_HEIGHT = 512
 # Bit state related color A Bit value from 7 bits characters set and value painted
-C_7BITS_0 = (0, 191, 250, 255)
-C_7BITS_1 = (0, 128, 0, 255)
+#C_7BITS_0 = (154, 205, 50, 255) #yellowgreen
+#C_7BITS_1 = (0, 191, 255, 255)  #deepbluesky
+C_7BITS_0 = (255, 255, 255, 255) #white
+C_7BITS_1 = (0, 191, 255, 255)  #deepbluesky
 # Parity bits bitwise color
 C_PBITS_0 = (255, 255, 255, 255) 
-C_PBITS_1 = (255, 69, 0, 255)
+C_PBITS_1 = (255, 69, 0, 255)  #redorange
 # Debug
 DEBUG = 1
 
@@ -40,7 +42,16 @@ def chars_to_bin(string):
     """
     Convert characters of a string to a 7 bits long binary format
     """
-    return ['{:b}'.format(ord(character)) for character in string]
+    #return ['{:b}'.format(ord(character)) for character in string]
+
+    list_of_7bits_items = ['{:b}'.format(ord(character)) for character in string]
+
+    if len(list_of_7bits_items)<8:
+        for i in range (8 - len(list_of_7bits_items)):
+            list_of_7bits_items.append('{0:07b}'.format(ord(' ')))
+
+    return list_of_7bits_items
+
 
 def parity_bit_octets(list_of_7bits_items):
     list_octets_items = []
